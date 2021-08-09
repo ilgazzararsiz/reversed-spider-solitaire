@@ -1,0 +1,28 @@
+.card {
+    border: 3px solid white;
+    width: 140px;
+    height: 190px;
+    border-radius: 10px;
+    background: rgb(249, 237, 216);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card--flipped {
+    background: crimson;
+}
+
+.card__rank {
+    font-family: 'Merienda', cursive;
+    font-size: 24px;
+}
+
+.card__rank--flipped {
+    transform: rotate(-180deg);
+}
+
+.card__symbol {
+    align-self: center;
+}
