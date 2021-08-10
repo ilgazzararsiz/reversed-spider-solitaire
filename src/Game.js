@@ -1,13 +1,48 @@
 import React from 'react';
-import Card from './components/Card';
+import Deck from './components/Deck';
 import './game.css';
 
 const Game = () => {
-  
+
+  const cards = [
+    {
+      rank: 'A',
+      flipped: true
+    },
+    {
+      rank: '5',
+      flipped: true
+    },
+    {
+      rank: '9',
+      flipped: true
+    },
+    {
+      rank: '9',
+      flipped: true
+    },
+    {
+      rank: '9',
+      flipped: false
+    },
+    {
+      rank: '9',
+      flipped: false
+    },
+    {
+      rank: '9',
+      flipped: false
+    }
+  ];
+
   return <div className="game">
-    <Card rank="8" flipped />
-    <Card rank="10" />
-    <Card rank="J" />
+    <div className="game__deck">
+      <Deck cards={ cards } />
+      <Deck cards={ cards } />
+      <Deck cards={ cards } />
+      <Deck cards={ cards } />
+      <Deck cards={ [] }/>
+    </div>
   </div>;
 };
 
