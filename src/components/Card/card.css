@@ -1,14 +1,12 @@
 .card {
     border: 3px solid white;
-    width: 150px;
-    height: 200px;
+    height: 140px;
     border-radius: 10px;
     background: rgb(249, 237, 216);
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 
 .card--flipped {
@@ -26,4 +24,5 @@
 
 .card__symbol {
     align-self: center;
+    padding: 0 24px;
 }

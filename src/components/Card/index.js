@@ -5,7 +5,7 @@ import './card.css';
 
 const Card = ({ rank, flipped, className }) => {
 
-  const cardSymbol = <img src="images/club.png" height="70"/>;
+  const cardSymbol = <img src="images/club.png" height="50"/>;
 
   return <div className={ cx('card', { 'card--flipped': flipped }, className) }>
     <div className="card__rank">{ !flipped && rank }</div>

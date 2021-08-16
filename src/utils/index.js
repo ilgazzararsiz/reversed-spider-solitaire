@@ -4,7 +4,10 @@ export const createCards = ranks => {
   const cards = [];
   ranks.forEach(rank => {
     for (let i = 0; i < COUNT_OF_CARD_RANK; i++) {
-      cards.push(rank);
+      cards.push({
+        rank: rank,
+        flipped: true
+      });
     }
   });
   return cards;
