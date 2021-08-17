@@ -22,3 +22,22 @@ export const shuffle = array => {
   }
   return array;
 };
+
+export const moveCards = (decks, setDecks, source, destination, x) => {
+  const a = [];
+  const tempDeck = [...decks];
+
+  for (let i = x; i >= 1; i--) {
+    a.push(tempDeck[source][tempDeck[source].length - i]);
+    tempDeck[source][tempDeck[source].length - i].flipped = false;
+  }
+  
+  a.forEach(e => {
+    tempDeck[destination].push(e);
+  });
+  
+  tempDeck[source].splice(-x);
+  tempDeck[source][tempDeck[source].length - 1].flipped = false;
+  
+  setDecks(tempDeck);
+};
