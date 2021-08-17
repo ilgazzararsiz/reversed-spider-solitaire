@@ -11,7 +11,7 @@ const Deck = ( { cards, className, type, onClick } ) => {
       return '';
     } else if (card.flipped || cards[i - 1].flipped) {
       return 'deck__card--sticky';
-    } else if (cards.length - 1 === i) {
+    } else if (cards.length - 1 === i || !card.flipped) {
       return 'deck__card deck__card--on-top';
     } else {
       return 'deck__card';
@@ -41,6 +41,10 @@ Deck.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string,
   onClick: PropTypes.func
+};
+
+Deck.defaultProps = {
+  cards: []
 };
 
 export default Deck;
