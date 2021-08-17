@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Card from '../Card';
+import { Droppable } from 'react-beautiful-dnd';
 import './deck.css';
 
-const Deck = ( { cards, className, type, onClick } ) => {
+const Deck = ( { cards, className, type, onClick, droppableId } ) => {
 
   const findClassName = (card, i) => {
     if (i === 0) {
@@ -21,6 +22,8 @@ const Deck = ( { cards, className, type, onClick } ) => {
   const renderCards = cardsArray => {
     return cardsArray.map((card, i) => {
       return <Card
+        draggableId={ card.id }
+        index={ i }
         rank={ card.rank }
         flipped={ card.flipped }
         className={ type !== 'spare' && findClassName(card, i) }
@@ -31,16 +34,22 @@ const Deck = ( { cards, className, type, onClick } ) => {
 
   const displayCards = type === 'spare' ? renderCards(cards.slice(0, 1)) : renderCards(cards);
 
-  return <div className={ cx('deck', className) } onClick={ onClick }>
-    { displayCards }
-  </div>;
+  return <Droppable droppableId={ droppableId }>
+    { provided => (
+      <div className={ cx('deck', className) } onClick={ onClick } ref={ provided.innerRef } { ...provided.droppableProps }>
+        { displayCards }
+        { provided.placeholder }
+      </div>
+    ) }
+  </Droppable>;
 };
 
 Deck.propTypes = {
   cards: PropTypes.array,
   className: PropTypes.string,
   type: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  droppableId: PropTypes.string
 };
 
 Deck.defaultProps = {

@@ -1,13 +1,16 @@
-import { COUNT_OF_CARD_RANK } from '../constants';
+import { COUNT_OF_CARD_RANK, COUNT_OF_DECK_ROWS } from '../constants';
 
 export const createCards = ranks => {
   const cards = [];
+  let id = 1;
   ranks.forEach(rank => {
     for (let i = 0; i < COUNT_OF_CARD_RANK; i++) {
       cards.push({
         rank: rank,
-        flipped: true
+        flipped: true,
+        id: `card-${id}`
       });
+      id++;
     }
   });
   return cards;
@@ -39,5 +42,25 @@ export const moveCards = (decks, setDecks, source, destination, x) => {
   tempDeck[source].splice(-x);
   tempDeck[source][tempDeck[source].length - 1].flipped = false;
   
+  setDecks(tempDeck);
+};
+
+export const prepareDecks = (gameCards, setDecks) => {
+  const tempDeck = [];
+  for (let i = 0; i < COUNT_OF_DECK_ROWS; i++) {
+    tempDeck.push([]);
+  }
+  
+  let i = 0;
+
+  gameCards.forEach(gameCard => {
+    tempDeck[i % COUNT_OF_DECK_ROWS].push(gameCard);
+    i++;
+  });
+
+  tempDeck.forEach(deck => {
+    deck[deck.length - 1].flipped = false;
+  });
+
   setDecks(tempDeck);
 };
