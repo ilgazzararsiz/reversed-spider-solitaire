@@ -26,7 +26,7 @@ const Deck = ( { cards, className, type, onClick, droppableId } ) => {
         index={ i }
         rank={ card.rank }
         flipped={ card.flipped }
-        className={ type !== 'spare' && findClassName(card, i) }
+        className={ type !== 'spare' ? findClassName(card, i) : '' }
         key={ i }
       />;
     });

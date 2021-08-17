@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Deck from '../Deck';
-import { shuffle, createCards, prepareDecks } from '../../utils';
+import { shuffle, createCards, prepareDecks, moveCards } from '../../utils';
 import { RANKS, SLICE_POINT_OF_DECKS, COUNT_OF_DECK_ROWS, COUNT_OF_CARDS_TO_OPEN } from '../../constants';
 import { DragDropContext } from 'react-beautiful-dnd';
 import './game.css';
@@ -40,7 +40,11 @@ const Game = () => {
   };
 
   const onDragEnd = e => {
-    console.log('🚀 ~ file: index.js ~ line 43 ~ onDragEnd ~ e', e);
+    const sourceId = e.source.droppableId.split('-')[1];
+    const destinationId = e.destination.droppableId.split('-')[1];
+
+    moveCards(decks, setDecks, sourceId, destinationId, 1);
+
   };
 
   return <DragDropContext onDragEnd={ onDragEnd }>
