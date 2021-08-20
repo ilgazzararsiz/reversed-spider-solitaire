@@ -1,4 +1,4 @@
-import { COUNT_OF_CARD_RANK, COUNT_OF_DECK_ROWS } from '../constants';
+import { COUNT_OF_CARD_RANK, COUNT_OF_DECK_ROWS, COUNT_OF_CARDS_TO_OPEN } from '../constants';
 
 export const createCards = ranks => {
   const cards = [];
@@ -6,9 +6,10 @@ export const createCards = ranks => {
   ranks.forEach(rank => {
     for (let i = 0; i < COUNT_OF_CARD_RANK; i++) {
       cards.push({
-        rank: rank,
+        rank: rank.name,
+        value: rank.value,
         flipped: true,
-        id: `card-${id}`
+        id: `card-${id}-${rank.value}`
       });
       id++;
     }
@@ -40,7 +41,9 @@ export const moveCards = (decks, setDecks, source, destination, x) => {
   });
   
   tempDeck[source].splice(-x);
-  tempDeck[source][tempDeck[source].length - 1].flipped = false;
+  const lastCardOfDeck = tempDeck[source][tempDeck[source].length - 1];
+  if (lastCardOfDeck)
+    lastCardOfDeck.flipped = false;
   
   setDecks(tempDeck);
 };
@@ -63,4 +66,23 @@ export const prepareDecks = (gameCards, setDecks) => {
   });
 
   setDecks(tempDeck);
+};
+
+export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, decks, setDecks) =>  {
+  const cardsToOpen = spareCards.slice(0, COUNT_OF_CARDS_TO_OPEN);
+  setSpareCards(spareCards.slice(COUNT_OF_CARDS_TO_OPEN, spareCards.length));
+
+  cardsToOpen.forEach(cardToOpen => {
+    setGameCards(gameCards => [...gameCards, cardToOpen]);
+  });
+
+  let i = 0;
+
+  const d = decks;
+  cardsToOpen.forEach(gameCard => {
+    d[i % COUNT_OF_DECK_ROWS].push({ ...gameCard, flipped: false });
+    i++;
+  });
+
+  setDecks(d);
 };

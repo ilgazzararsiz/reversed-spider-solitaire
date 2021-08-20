@@ -9,7 +9,7 @@ const Card = ({ rank, flipped, className, draggableId, index }) => {
 
   const cardSymbol = <img src="images/club.png" height="50"/>;
 
-  return <Draggable draggableId={ draggableId } index={ index }>
+  return <Draggable draggableId={ draggableId } index={ index } isDragDisabled={ flipped }>
     { provided => (
       <div
         { ...provided.draggableProps }
@@ -36,5 +36,3 @@ Card.propTypes = {
 };
 
 export default Card;
-
-//array, içinde a2345678910jqk bunlar, strarray, dön ve kart componentlerini oluştur.
