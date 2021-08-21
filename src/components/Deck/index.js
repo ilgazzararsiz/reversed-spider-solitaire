@@ -28,6 +28,7 @@ const Deck = ( { cards, className, type, onClick, droppableId } ) => {
         flipped={ card.flipped }
         className={ type !== 'spare' ? findClassName(card, i) : '' }
         key={ i }
+        isCompletedCard={ type === 'holder' }
       />;
     });
   };

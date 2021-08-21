@@ -5,11 +5,11 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import './card.css';
 
-const Card = ({ rank, flipped, className, draggableId, index }) => {
+const Card = ({ rank, flipped, className, draggableId, index, isCompletedCard }) => {
 
   const cardSymbol = <img src="images/club.png" height="50"/>;
 
-  return <Draggable draggableId={ draggableId } index={ index } isDragDisabled={ flipped }>
+  return <Draggable draggableId={ draggableId } index={ index } isDragDisabled={ flipped || isCompletedCard }>
     { provided => (
       <div
         { ...provided.draggableProps }
@@ -32,7 +32,12 @@ Card.propTypes = {
   flipped: PropTypes.bool,
   className: PropTypes.string,
   index: PropTypes.number,
-  draggableId: PropTypes.string
+  draggableId: PropTypes.string,
+  isCompletedCard: PropTypes.bool
+};
+
+Card.defaultProps = {
+  isCompletedCard: false
 };
 
 export default Card;

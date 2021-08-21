@@ -1,10 +1,10 @@
-import { COUNT_OF_CARD_RANK, COUNT_OF_DECK_ROWS, COUNT_OF_CARDS_TO_OPEN } from '../constants';
+import { COUNT_OF_CARD_DECKS, COUNT_OF_DECK_ROWS, COUNT_OF_CARDS_TO_OPEN, RANKS } from '../constants';
 
 export const createCards = ranks => {
   const cards = [];
   let id = 1;
   ranks.forEach(rank => {
-    for (let i = 0; i < COUNT_OF_CARD_RANK; i++) {
+    for (let i = 0; i < COUNT_OF_CARD_DECKS; i++) {
       cards.push({
         rank: rank.name,
         value: rank.value,
@@ -83,6 +83,25 @@ export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, dec
     d[i % COUNT_OF_DECK_ROWS].push({ ...gameCard, flipped: false });
     i++;
   });
-
   setDecks(d);
+};
+
+export const findCompletedDecks = decks => {
+  const decksResults = [];
+  decks.forEach((deck, i) => {
+    if (deck.length >= 13) {
+      const hasMaxValue = deck[deck.length - 1].value === 13;
+      if (hasMaxValue) {
+        let isValueEqual = true;
+  
+        for (let j = deck.length - 1; j > deck.length - RANKS.length; j--) {
+          if (deck[j].value !== deck[j - 1].value + 1 || deck[j].flipped) {
+            isValueEqual = false;
+          }
+        }
+        isValueEqual && decksResults.push(i);
+      }
+    }
+  });
+  return decksResults;
 };
