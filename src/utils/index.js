@@ -68,7 +68,18 @@ export const prepareDecks = (gameCards, setDecks) => {
   setDecks(tempDeck);
 };
 
-export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, decks, setDecks) =>  {
+export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, decks, setDecks, notify) =>  {
+  let hasEmptyDeck = false;
+  decks.forEach(deck => {
+    if (deck.length === 0)
+      hasEmptyDeck = true;
+  });
+
+  if (hasEmptyDeck) {
+    notify('Please move a card to empty deck.');
+    return;
+  }
+
   const cardsToOpen = spareCards.slice(0, COUNT_OF_CARDS_TO_OPEN);
   setSpareCards(spareCards.slice(COUNT_OF_CARDS_TO_OPEN, spareCards.length));
 
@@ -83,6 +94,7 @@ export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, dec
     d[i % COUNT_OF_DECK_ROWS].push({ ...gameCard, flipped: false });
     i++;
   });
+  d[3] = [];
   setDecks(d);
 };
 
