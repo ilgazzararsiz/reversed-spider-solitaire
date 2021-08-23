@@ -4,6 +4,12 @@
     overflow-x: scroll;
     min-width: 400px;
     margin: 0 auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.game::-webkit-scrollbar {
+    display: none;
 }
 
 .game__deck {
