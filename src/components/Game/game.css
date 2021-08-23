@@ -1,5 +1,9 @@
 .game {
     padding: 75px;
+    max-width: 1366px;
+    overflow-x: scroll;
+    min-width: 400px;
+    margin: 0 auto;
 }
 
 .game__deck {
