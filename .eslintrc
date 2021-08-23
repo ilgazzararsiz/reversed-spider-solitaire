@@ -1,11 +1,12 @@
 {
   "parser": "babel-eslint",
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:cypress/recommended"],
   "globals": {
     "__CLIENT__": true,
     "__SERVER__": true,
     "__DEV__": true,
-    "__CONFIG__": true
+    "__CONFIG__": true,
+    "cy": true
   },
   "plugins": ["react"],
   "settings": {
