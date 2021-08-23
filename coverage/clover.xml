@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1629749512861" clover="3.2.0">
+  <project timestamp="1629749512861" name="All files">
+    <metrics statements="74" coveredstatements="41" conditionals="16" coveredconditionals="10" methods="15" coveredmethods="7" elements="105" coveredelements="58" complexity="0" loc="74" ncloc="74" packages="2" files="2" classes="2"/>
+    <package name="constants">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/ilgaz/Desktop/Projects/reversed-spider-solitaire-ilgaz-zararsiz/src/constants/index.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="69" coveredstatements="36" conditionals="16" coveredconditionals="10" methods="15" coveredmethods="7"/>
+      <file name="index.js" path="/Users/ilgaz/Desktop/Projects/reversed-spider-solitaire-ilgaz-zararsiz/src/utils/index.js">
+        <metrics statements="69" coveredstatements="36" conditionals="16" coveredconditionals="10" methods="15" coveredmethods="7"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="104" type="stmt"/>
+        <line num="14" count="104" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="103" type="stmt"/>
+        <line num="23" count="103" type="stmt"/>
+        <line num="24" count="103" type="stmt"/>
+        <line num="25" count="103" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="78" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="101" count="2" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="103" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="106" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="109" count="12" type="cond" truecount="3" falsecount="1"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="113" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="117" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
