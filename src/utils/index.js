@@ -94,7 +94,6 @@ export const distributeSpareDeck = (spareCards, setSpareCards, setGameCards, dec
     d[i % COUNT_OF_DECK_ROWS].push({ ...gameCard, flipped: false });
     i++;
   });
-  d[3] = [];
   setDecks(d);
 };
 
