@@ -1,6 +1,9 @@
-import { createCards, shuffle } from '../utils';
+import { createCards, shuffle, distributeSpareDeck, findCompletedDecks } from '../utils';
 import { RANKS } from '../constants';
 import cards from './cards.json';
+import decks from './decks.json';
+import completedDeck from './completedDeck.json';
+//import { moveCards } from '../utils';
 
 describe('Util Tests', () => {
   it('should create cards', () => {
@@ -25,4 +28,58 @@ describe('Util Tests', () => {
     // assert
     expect(false).toBe(cardsArray !== actualResult);
   });
+
+  it('it should return undefined when deck has empty deck', () => {
+    // arrange
+    const spareCards = [];
+    const setSpareCards = () => { };
+    const setGameCards = () => { };
+    const setDecks = () => { };
+    const notify = () => { };
+    const decksArray = [[], []];
+
+    // act
+    const actualResult = distributeSpareDeck(spareCards, setSpareCards, setGameCards, decksArray, setDecks, notify);
+
+    // assert
+    expect(actualResult).toBe(undefined);
+  });
+
+  it('it should return array with length zero', () => {
+    // arrange
+    const decksArray = decks;
+
+    // act
+    const actualResult = findCompletedDecks(decksArray);
+
+    // assert
+    expect(actualResult.length).toBe(0);
+  });
+
+  it('it should return array with length 1', () => {
+    // arrange
+    const decksArray = [completedDeck, [], []];
+
+    // act
+    const actualResult = findCompletedDecks(decksArray);
+
+    // assert
+    expect(actualResult.length).toBe(1);
+  });
+
+  // it('should move cards', () => {
+  //   // arrange
+  //   const decksArray = decks;
+  //   const setDecks = () => { };
+  //   const source = 3;
+  //   const destination = 4;
+  //   const x = 1;
+
+  //   // act
+  //   moveCards(decksArray, setDecks, source, destination, x);
+
+  //   // assert
+  //   expect(setDecks).toBeCalled();
+
+  // });
 });

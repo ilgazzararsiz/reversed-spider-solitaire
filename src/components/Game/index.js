@@ -64,6 +64,7 @@ const Game = () => {
             }
           }
           canMoveCards && moveCards(decks, setDecks, sourceId, destinationId, x);
+          console.log('🚀 ~ file: index.js ~ line 67 ~ Game ~ decks', JSON.stringify(decks));
         } else {
           // eslint-disable-next-line no-useless-escape
           notify('Invalid card move ¯\\_(ツ)_/¯');
